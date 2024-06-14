@@ -51,12 +51,12 @@
             <div class="row">
                 <div class="col-lg-6 p-0">
                     <div class="categories__item categories__large__item set-bg"
-                        data-setbg="{{ asset('assets') }}/img/categories/category-1.jpg">
+                        data-setbg="{{ asset('assets') }}/img/categories/category-1.png">
                         <div class="categories__text">
-                            <h1>Women’s fashion</h1>
-                            <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
+                            <h1 style="color: white;">Perlengkapan GS</h1>
+                            <p style="color: white;">Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
                                 edolore magna aliquapendisse ultrices gravida.</p>
-                            <a href="#">Shop now</a>
+                            <a href="#" style="color: white;">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -64,9 +64,9 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 p-0">
                             <div class="categories__item set-bg"
-                                data-setbg="{{ asset('assets') }}/img/categories/category-2.jpg">
+                                data-setbg="{{ asset('assets') }}/img/categories/category-2.png">
                                 <div class="categories__text">
-                                    <h4>Men’s fashion</h4>
+                                    <h4>Baju Kaos</h4>
                                     <p>358 items</p>
                                     <a href="#">Shop now</a>
                                 </div>
@@ -76,7 +76,7 @@
                             <div class="categories__item set-bg"
                                 data-setbg="{{ asset('assets') }}/img/categories/category-3.jpg">
                                 <div class="categories__text">
-                                    <h4>Kid’s fashion</h4>
+                                    <h4>Perlengkapan Anak</h4>
                                     <p>273 items</p>
                                     <a href="#">Shop now</a>
                                 </div>
@@ -84,19 +84,19 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 p-0">
                             <div class="categories__item set-bg"
-                                data-setbg="{{ asset('assets') }}/img/categories/category-4.jpg">
+                                data-setbg="{{ asset('assets') }}/img/categories/category-4.png">
                                 <div class="categories__text">
-                                    <h4>Cosmetics</h4>
-                                    <p>159 items</p>
-                                    <a href="#">Shop now</a>
+                                    <h4 style="color: white;">Permainan</h4>
+                                    <p style="color: white;">159 items</p>
+                                    <a href="#" style="color: white;">Shop now</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 p-0">
                             <div class="categories__item set-bg"
-                                data-setbg="{{ asset('assets') }}/img/categories/category-5.jpg">
+                                data-setbg="{{ asset('assets') }}/img/categories/category-5.png">
                                 <div class="categories__text">
-                                    <h4>Accessories</h4>
+                                    <h4>Souvenir</h4>
                                     <p>792 items</p>
                                     <a href="#">Shop now</a>
                                 </div>
@@ -257,22 +257,22 @@
                     <div class="banner__slider owl-carousel">
                         <div class="banner__item">
                             <div class="banner__text">
-                                <span>The Chloe Collection</span>
-                                <h1>The Project Jacket</h1>
+                                <span>Perlengkapan GS</span>
+                                <h1>Seragam Sekolah</h1>
                                 <a href="#">Shop now</a>
                             </div>
                         </div>
                         <div class="banner__item">
                             <div class="banner__text">
-                                <span>The Chloe Collection</span>
-                                <h1>The Project Jacket</h1>
+                                <span>Perlengkapan GS</span>
+                                <h1>Buku Catatan</h1>
                                 <a href="#">Shop now</a>
                             </div>
                         </div>
                         <div class="banner__item">
                             <div class="banner__text">
-                                <span>The Chloe Collection</span>
-                                <h1>The Project Jacket</h1>
+                                <span>Perlengkapan GS</span>
+                                <h1>Jaket</h1>
                                 <a href="#">Shop now</a>
                             </div>
                         </div>
