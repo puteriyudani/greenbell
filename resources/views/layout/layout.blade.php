@@ -10,6 +10,10 @@
 
     @yield('title')
 
+    <!-- Favicons -->
+    <link href="{{ asset('assets') }}/img/icon.png" rel="icon">
+    <link href="{{ asset('assets') }}/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
