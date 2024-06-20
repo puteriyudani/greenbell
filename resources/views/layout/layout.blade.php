@@ -67,8 +67,9 @@
     <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
+            <form class="search-model-form" action="{{ route('home') }}" method="GET">
+                <input type="text" id="search-input" name="query" placeholder="Search products...">
+                <button type="submit">Search</button>
             </form>
         </div>
     </div>

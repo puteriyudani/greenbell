@@ -54,9 +54,9 @@
                         data-setbg="{{ asset('assets') }}/img/categories/category-1.png">
                         <div class="categories__text">
                             <h1 style="color: white;">Perlengkapan GS</h1>
-                            <p style="color: white;">Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
+                            <p style="color: white;">Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt
+                                labore
                                 edolore magna aliquapendisse ultrices gravida.</p>
-                            <a href="#" style="color: white;">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,6 @@
                                 <div class="categories__text">
                                     <h4>Baju Kaos</h4>
                                     <p>358 items</p>
-                                    <a href="#">Shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +77,6 @@
                                 <div class="categories__text">
                                     <h4>Perlengkapan Anak</h4>
                                     <p>273 items</p>
-                                    <a href="#">Shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +86,6 @@
                                 <div class="categories__text">
                                     <h4 style="color: white;">Permainan</h4>
                                     <p style="color: white;">159 items</p>
-                                    <a href="#" style="color: white;">Shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +95,6 @@
                                 <div class="categories__text">
                                     <h4>Souvenir</h4>
                                     <p>792 items</p>
-                                    <a href="#">Shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -112,6 +108,61 @@
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
+            {{-- <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="section-title">
+                        <h4>Search Results</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row property__gallery">
+                @if ($products->isEmpty())
+                    <p>No products found.</p>
+                @else
+                    @foreach ($products as $product)
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                            <div class="product__item">
+                                @if ($product->images->isNotEmpty())
+                                    <div class="product__item__pic set-bg"
+                                        data-setbg="{{ asset('storage/images/' . $product->images->first()->image) }}">
+                                        <div class="label new">{{ $product->kondisi }}</div>
+                                        <ul class="product__hover">
+                                            <li><a href="https://wa.me/6282268081212" target="_blank"><span
+                                                        class="icon_headphones"></span></a></li>
+                                            <li>
+                                                <a href="{{ asset('storage/images/' . $product->images->first()->image) }}"
+                                                    class="image-popup">
+                                                    <span class="arrow_expand"></span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                @else
+                                    <div class="product__item__pic set-bg"
+                                        data-setbg="{{ asset('assets/img/product/details/product-1.jpg') }}">
+                                        <div class="label new">{{ $product->kondisi }}</div>
+                                        <ul class="product__hover">
+                                            <li><a href="https://wa.me/6282268081212" target="_blank"><span
+                                                        class="icon_headphones"></span></a></li>
+                                            <li>
+                                                <a href="{{ asset('assets/img/product/details/product-1.jpg') }}"
+                                                    class="image-popup">
+                                                    <span class="arrow_expand"></span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                @endif
+
+                                <div class="product__item__text">
+                                    <h6><a href="{{ route('product-detail', $product->id) }}"
+                                            target="_blank">{{ $product->nama }}</a></h6>
+                                    <div class="product__price">Rp. {{ number_format($product->harga, 0, ',', '.') }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div> --}}
+
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="section-title">
@@ -137,7 +188,8 @@
                                     data-setbg="{{ asset('storage/images/' . $beleaf->images->first()->image) }}">
                                     <div class="label new">{{ $beleaf->kondisi }}</div>
                                     <ul class="product__hover">
-                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span class="icon_headphones"></span></a></li>
+                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span
+                                                    class="icon_headphones"></span></a></li>
                                         <li>
                                             <a href="{{ asset('storage/images/' . $beleaf->images->first()->image) }}"
                                                 class="image-popup">
@@ -150,9 +202,11 @@
                                     data-setbg="{{ asset('assets/img/product/details/product-1.jpg') }}">
                                     <div class="label new">{{ $beleaf->kondisi }}</div>
                                     <ul class="product__hover">
-                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span class="icon_headphones"></span></a></li>
+                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span
+                                                    class="icon_headphones"></span></a></li>
                                         <li>
-                                            <a href="{{ asset('assets/img/product/details/product-1.jpg') }}" class="image-popup">
+                                            <a href="{{ asset('assets/img/product/details/product-1.jpg') }}"
+                                                class="image-popup">
                                                 <span class="arrow_expand"></span></a>
                                         </li>
                                     </ul>
@@ -160,7 +214,8 @@
                             @endif
 
                             <div class="product__item__text">
-                                <h6><a href="{{ route('product-detail', $beleaf->id) }}" target="_blank">{{ $beleaf->nama }}</a></h6>
+                                <h6><a href="{{ route('product-detail', $beleaf->id) }}"
+                                        target="_blank">{{ $beleaf->nama }}</a></h6>
                                 <div class="product__price">Rp. {{ number_format($beleaf->harga, 0, ',', '.') }}</div>
                             </div>
                         </div>
@@ -176,7 +231,8 @@
                                     data-setbg="{{ asset('storage/images/' . $preloved->images->first()->image) }}">
                                     <div class="label new">{{ $preloved->kondisi }}</div>
                                     <ul class="product__hover">
-                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span class="icon_headphones"></span></a></li>
+                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span
+                                                    class="icon_headphones"></span></a></li>
                                         <li>
                                             <a href="{{ asset('storage/images/' . $preloved->images->first()->image) }}"
                                                 class="image-popup">
@@ -189,9 +245,11 @@
                                     data-setbg="{{ asset('assets/img/product/details/product-1.jpg') }}">
                                     <div class="label new">{{ $preloved->kondisi }}</div>
                                     <ul class="product__hover">
-                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span class="icon_headphones"></span></a></li>
+                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span
+                                                    class="icon_headphones"></span></a></li>
                                         <li>
-                                            <a href="{{ asset('assets/img/product/details/product-1.jpg') }}" class="image-popup">
+                                            <a href="{{ asset('assets/img/product/details/product-1.jpg') }}"
+                                                class="image-popup">
                                                 <span class="arrow_expand"></span></a>
                                         </li>
                                     </ul>
@@ -199,7 +257,8 @@
                             @endif
 
                             <div class="product__item__text">
-                                <h6><a href="{{ route('product-detail', $preloved->id) }}" target="_blank">{{ $preloved->nama }}</a></h6>
+                                <h6><a href="{{ route('product-detail', $preloved->id) }}"
+                                        target="_blank">{{ $preloved->nama }}</a></h6>
                                 <div class="product__price">Rp. {{ number_format($preloved->harga, 0, ',', '.') }}</div>
                             </div>
                         </div>
@@ -215,7 +274,8 @@
                                     data-setbg="{{ asset('storage/images/' . $general->images->first()->image) }}">
                                     <div class="label new">{{ $general->kondisi }}</div>
                                     <ul class="product__hover">
-                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span class="icon_headphones"></span></a></li>
+                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span
+                                                    class="icon_headphones"></span></a></li>
                                         <li>
                                             <a href="{{ asset('storage/images/' . $general->images->first()->image) }}"
                                                 class="image-popup">
@@ -228,9 +288,11 @@
                                     data-setbg="{{ asset('assets/img/product/details/product-1.jpg') }}">
                                     <div class="label new">{{ $general->kondisi }}</div>
                                     <ul class="product__hover">
-                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span class="icon_headphones"></span></a></li>
+                                        <li><a href="https://wa.me/6282268081212" target="_blank"><span
+                                                    class="icon_headphones"></span></a></li>
                                         <li>
-                                            <a href="{{ asset('assets/img/product/details/product-1.jpg') }}" class="image-popup">
+                                            <a href="{{ asset('assets/img/product/details/product-1.jpg') }}"
+                                                class="image-popup">
                                                 <span class="arrow_expand"></span></a>
                                         </li>
                                     </ul>
@@ -238,7 +300,8 @@
                             @endif
 
                             <div class="product__item__text">
-                                <h6><a href="{{ route('product-detail', $general->id) }}" target="_blank">{{ $general->nama }}</a></h6>
+                                <h6><a href="{{ route('product-detail', $general->id) }}"
+                                        target="_blank">{{ $general->nama }}</a></h6>
                                 <div class="product__price">Rp. {{ number_format($general->harga, 0, ',', '.') }}</div>
                             </div>
                         </div>
@@ -259,21 +322,18 @@
                             <div class="banner__text">
                                 <span>Perlengkapan GS</span>
                                 <h1>Seragam Sekolah</h1>
-                                <a href="#">Shop now</a>
                             </div>
                         </div>
                         <div class="banner__item">
                             <div class="banner__text">
                                 <span>Perlengkapan GS</span>
                                 <h1>Buku Catatan</h1>
-                                <a href="#">Shop now</a>
                             </div>
                         </div>
                         <div class="banner__item">
                             <div class="banner__text">
                                 <span>Perlengkapan GS</span>
                                 <h1>Jaket</h1>
-                                <a href="#">Shop now</a>
                             </div>
                         </div>
                     </div>

@@ -4,20 +4,14 @@
     <div class="offcanvas__close">+</div>
     <ul class="offcanvas__widget">
         <li><span class="icon_search search-switch"></span></li>
-        <li><a href="#"><span class="icon_heart_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
-        <li><a href="#"><span class="icon_bag_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
     </ul>
     <div class="offcanvas__logo">
-        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+        <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/img/logo.png" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__auth">
-        <a href="#">Login</a>
-        <a href="#">Register</a>
+        <a href="{{ route('login') }}" target="_blank">Login</a>
+        <a href="{{ route('register') }}" target="_blank">Register</a>
     </div>
 </div>
 <!-- Offcanvas Menu End -->
