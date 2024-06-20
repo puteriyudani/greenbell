@@ -214,8 +214,7 @@
                             @endif
 
                             <div class="product__item__text">
-                                <h6><a href="{{ route('product-detail', $beleaf->id) }}"
-                                        target="_blank">{{ $beleaf->nama }}</a></h6>
+                                <h6><a href="{{ route('product-detail', $beleaf->id) }}">{{ $beleaf->nama }}</a></h6>
                                 <div class="product__price">Rp. {{ number_format($beleaf->harga, 0, ',', '.') }}</div>
                             </div>
                         </div>
@@ -257,8 +256,7 @@
                             @endif
 
                             <div class="product__item__text">
-                                <h6><a href="{{ route('product-detail', $preloved->id) }}"
-                                        target="_blank">{{ $preloved->nama }}</a></h6>
+                                <h6><a href="{{ route('product-detail', $preloved->id) }}">{{ $preloved->nama }}</a></h6>
                                 <div class="product__price">Rp. {{ number_format($preloved->harga, 0, ',', '.') }}</div>
                             </div>
                         </div>
@@ -300,8 +298,7 @@
                             @endif
 
                             <div class="product__item__text">
-                                <h6><a href="{{ route('product-detail', $general->id) }}"
-                                        target="_blank">{{ $general->nama }}</a></h6>
+                                <h6><a href="{{ route('product-detail', $general->id) }}">{{ $general->nama }}</a></h6>
                                 <div class="product__price">Rp. {{ number_format($general->harga, 0, ',', '.') }}</div>
                             </div>
                         </div>

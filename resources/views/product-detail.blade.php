@@ -51,9 +51,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="{{ route('home') }}"><i class="fa fa-home"></i> Home</a>
-                        <a href="#">{{ $product->kategori }}</a>
-                        <span>{{ $product->nama }}</span>
+                        <a href="{{ route('store') }}"><i class="fa fa-shopping-bag"></i> Store</a>
+                        <a>{{ $productDetail->menu }}</a>
+                        <span>{{ $productDetail->nama }}</span>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="product__details__pic">
-                        @if ($product->images->isNotEmpty())
+                        @if ($productDetail->images->isNotEmpty())
                             <div class="product__details__pic">
                                 <div class="product__details__pic__left product__thumb nice-scroll">
                                     @foreach ($productImages as $index => $item)
@@ -118,9 +118,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>{{ $product->nama }} <span>Kode: {{ $product->kode }}</span></h3>
-                        <div class="product__details__price">Rp. {{ number_format($product->harga, 0, ',', '.') }}</div>
-                        <p>{{ $product->detail }}</p>
+                        <h3>{{ $productDetail->nama }} <span>Kode: {{ $productDetail->kode }}</span></h3>
+                        <div class="product__details__price">Rp. {{ number_format($productDetail->harga, 0, ',', '.') }}</div>
+                        <p>{{ $productDetail->detail }}</p>
                         <div class="product__details__button">
                             <a href="https://wa.me/6282268081212" class="cart-btn" target="_blank"><span
                                     class="icon_headphones" style="margin-right: 10px"></span>Lanjut Via WhatsApp</a>
@@ -130,12 +130,12 @@
                                 <li>
                                 <li>
                                     <span>Kategori:</span>
-                                    <p style="color: red">{{ $product->kategori }}</p>
+                                    <p style="color: red">{{ $productDetail->kategori }}</p>
                                 </li>
                                 </li>
                                 <li>
                                     <span>Stock:</span>
-                                    <p>{{ $product->stok }}</p>
+                                    <p>{{ $productDetail->stok }}</p>
                                 </li>
                             </ul>
                         </div>

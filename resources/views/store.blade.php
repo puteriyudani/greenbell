@@ -51,8 +51,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="{{ route('home') }}"><i class="fa fa-home"></i> Home</a>
-                        <span>Store</span>
+                        <a><i class="fa fa-shopping-bag"></i> Store</a>
                     </div>
                 </div>
             </div>
@@ -122,8 +121,7 @@
                                     @endif
 
                                     <div class="product__item__text">
-                                        <h6><a href="{{ route('product-detail', $product->id) }}"
-                                                target="_blank">{{ $product->nama }}</a></h6>
+                                        <h6><a href="{{ route('product-detail', $product->id) }}">{{ $product->nama }}</a></h6>
                                         <div class="product__price">Rp. {{ number_format($product->harga, 0, ',', '.') }}
                                         </div>
                                     </div>

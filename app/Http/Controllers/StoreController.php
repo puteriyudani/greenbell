@@ -20,8 +20,17 @@ class StoreController extends Controller
 
     public function productDetail(Product $product)
     {
+        // Ambil detail produk dengan join ke tabel kategoris
+        $productDetail = Product::join('kategoris', 'kategoris.nama', '=', 'products.kategori')
+            ->where('products.id', $product->id)
+            ->select('products.*', 'kategoris.menu')
+            ->firstOrFail();
+
+        // Ambil gambar produk terkait
         $productImages = ProductImage::where('product_id', $product->id)->get();
-        return view('product-detail', compact('product', 'productImages'));
+
+        // Return view dengan data yang diperlukan
+        return view('product-detail', compact('productDetail', 'productImages'));
     }
 
     public function beleaf()
