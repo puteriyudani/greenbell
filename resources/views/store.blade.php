@@ -88,7 +88,7 @@
                 <div class="col-lg-9 col-md-9">
                     <div class="row">
                         @foreach ($products as $product)
-                            <div class="col-lg-4 col-md-6">
+                            <div class="col-lg-4 col-md-4 col-4">
                                 <div class="product__item">
                                     @if ($product->images->isNotEmpty())
                                         <div class="product__item__pic set-bg"

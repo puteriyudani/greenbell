@@ -108,61 +108,6 @@
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
-            {{-- <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="section-title">
-                        <h4>Search Results</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row property__gallery">
-                @if ($products->isEmpty())
-                    <p>No products found.</p>
-                @else
-                    @foreach ($products as $product)
-                        <div class="col-lg-3 col-md-4 col-sm-6 mix">
-                            <div class="product__item">
-                                @if ($product->images->isNotEmpty())
-                                    <div class="product__item__pic set-bg"
-                                        data-setbg="{{ asset('storage/images/' . $product->images->first()->image) }}">
-                                        <div class="label new">{{ $product->kondisi }}</div>
-                                        <ul class="product__hover">
-                                            <li><a href="https://wa.me/6282268081212" target="_blank"><span
-                                                        class="icon_headphones"></span></a></li>
-                                            <li>
-                                                <a href="{{ asset('storage/images/' . $product->images->first()->image) }}"
-                                                    class="image-popup">
-                                                    <span class="arrow_expand"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                @else
-                                    <div class="product__item__pic set-bg"
-                                        data-setbg="{{ asset('assets/img/product/details/product-1.jpg') }}">
-                                        <div class="label new">{{ $product->kondisi }}</div>
-                                        <ul class="product__hover">
-                                            <li><a href="https://wa.me/6282268081212" target="_blank"><span
-                                                        class="icon_headphones"></span></a></li>
-                                            <li>
-                                                <a href="{{ asset('assets/img/product/details/product-1.jpg') }}"
-                                                    class="image-popup">
-                                                    <span class="arrow_expand"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                @endif
-
-                                <div class="product__item__text">
-                                    <h6><a href="{{ route('product-detail', $product->id) }}"
-                                            target="_blank">{{ $product->nama }}</a></h6>
-                                    <div class="product__price">Rp. {{ number_format($product->harga, 0, ',', '.') }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-            </div> --}}
-
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="section-title">
@@ -181,7 +126,7 @@
             <div class="row property__gallery">
                 <!-- Be Leaf -->
                 @foreach ($beleafs as $beleaf)
-                    <div class="col-lg-3 col-md-4 col-sm-6 mix BeLeaf">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-3 mix BeLeaf">
                         <div class="product__item">
                             @if ($beleaf->images->isNotEmpty())
                                 <div class="product__item__pic set-bg"
@@ -223,7 +168,7 @@
 
                 <!-- Pre Loved -->
                 @foreach ($preloveds as $preloved)
-                    <div class="col-lg-3 col-md-4 col-sm-6 mix PreLoved">
+                    <div class="col-lg-3 col-md-4 col-sm-3 col-3 mix PreLoved">
                         <div class="product__item">
                             @if ($preloved->images->isNotEmpty())
                                 <div class="product__item__pic set-bg"
@@ -265,7 +210,7 @@
 
                 <!-- General -->
                 @foreach ($generals as $general)
-                    <div class="col-lg-3 col-md-4 col-sm-6 mix General">
+                    <div class="col-lg-3 col-md-4 col-sm-3 col-3 mix General">
                         <div class="product__item">
                             @if ($general->images->isNotEmpty())
                                 <div class="product__item__pic set-bg"

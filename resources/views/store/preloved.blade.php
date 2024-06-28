@@ -104,7 +104,7 @@
                     </div>
                     <div class="row property__gallery">
                         @foreach ($products as $product)
-                            <div class="col-lg-4 col-md-6 mix {{ str_replace(' ', '', $product->kategori) }}">
+                            <div class="col-lg-4 col-md-4 col-4 mix {{ str_replace(' ', '', $product->kategori) }}">
                                 <div class="product__item">
                                     @if ($product->images->isNotEmpty())
                                         <div class="product__item__pic set-bg"
