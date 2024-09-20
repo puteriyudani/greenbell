@@ -1828,10 +1828,9 @@ ol {
     display: inline-block;
     font-size: 14px;
     color: #ffffff;
-    background: #25D366;
     font-weight: 600;
     text-transform: uppercase;
-    padding: 14px 30px 15px;
+    padding: 10px 15px 10px;
     border-radius: 50px;
     float: left;
     margin-right: 10px;

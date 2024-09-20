@@ -2,6 +2,12 @@
 
 @section('title')
     <title>Green Bell</title>
+
+    <style>
+        .product__details__button a {
+            text-decoration: none;
+        }
+    </style>
 @endsection
 
 @section('header')
@@ -119,12 +125,27 @@
                 <div class="col-lg-6">
                     <div class="product__details__text">
                         <h3>{{ $productDetail->nama }} <span>Kode: {{ $productDetail->kode }}</span></h3>
-                        <div class="product__details__price">Rp. {{ number_format($productDetail->harga, 0, ',', '.') }}</div>
-                        <p>{{ $productDetail->detail }}</p>
-                        <div class="product__details__button">
-                            <a href="https://wa.me/6282268081212" class="cart-btn" target="_blank"><span
-                                    class="icon_headphones" style="margin-right: 10px"></span>Lanjut Via WhatsApp</a>
+                        <div class="product__details__price">Rp. {{ number_format($productDetail->harga, 0, ',', '.') }}
                         </div>
+                        <p>{{ $productDetail->detail }}</p>
+                        <div class="product__details__container" style="display: flex;">
+                            <div class="product__details__button">
+                                <a href="https://wa.me/6282268081212" class="cart-btn" target="_blank" style="background: #25D366">
+                                    <span style="margin-right: 10px;"><i class="bi bi-whatsapp"></i></span>WhatsApp
+                                </a>
+                            </div>
+                            <div class="product__details__button">
+                                <a href="" class="cart-btn" target="_blank" style="background: #EE4D2D">
+                                    <span style="margin-right: 10px;"><i class="bi bi-bag-fill"></i></span>Shopee
+                                </a>
+                            </div>
+                            <div class="product__details__button">
+                                <a href="" class="cart-btn" target="_blank" style="background: #000000">
+                                    <span style="margin-right: 10px;"><i class="bi bi-tiktok"></i></span>Tiktok
+                                </a>
+                            </div>
+                        </div>
+
                         <div class="product__details__widget">
                             <ul>
                                 <li>
