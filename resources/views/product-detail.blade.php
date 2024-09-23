@@ -156,7 +156,11 @@
                                 </li>
                                 <li>
                                     <span>Stock:</span>
-                                    <p>{{ $productDetail->stok }}</p>
+                                    <p style="color: green">{{ $productDetail->stok }}</p>
+                                </li>
+                                <li>
+                                    <span>Kondisi:</span>
+                                    <p style="color: red">{{ $productDetail->kondisi }}</p>
                                 </li>
                             </ul>
                         </div>
