@@ -9,21 +9,32 @@
                     clip-rule="evenodd"></path>
             </svg>
         </button>
-        <!-- Search input -->
+        <!-- Search form -->
+        @if (Request::routeIs('product.index') || Request::routeIs('products.search'))
+            <form action="{{ route('products.search') }}" method="GET">
+                <div class="flex justify-center flex-1 lg:mr-32">
+                    <div class="relative w-full max-w-xl mr-6 focus-within:text-purple-500">
+                        <div class="absolute inset-y-0 flex items-center pl-2">
+                            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <input
+                            class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                            type="text" name="search" placeholder="Search products"
+                            value="{{ request()->search ?? '' }}" aria-label="Search" />
+                    </div>
+                </div>
+            </form>
+        @endif
+
         <div class="flex justify-center flex-1 lg:mr-32">
             <div class="relative w-full max-w-xl mr-6 focus-within:text-purple-500">
-                <div class="absolute inset-y-0 flex items-center pl-2">
-                    <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <input
-                    class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
-                    type="text" placeholder="Search for projects" aria-label="Search" />
             </div>
         </div>
+
         <ul class="flex items-center flex-shrink-0 space-x-6">
             <!-- Theme toggler -->
             <li class="flex">
@@ -49,8 +60,7 @@
                 <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
                     @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
                     aria-haspopup="true">
-                    <img class="object-cover w-8 h-8 rounded-full"
-                        src="{{ asset('admin') }}/img/user-1.jpg"
+                    <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('admin') }}/img/user-1.jpg"
                         alt="" aria-hidden="true" />
                 </button>
                 <template x-if="isProfileMenuOpen">
@@ -63,8 +73,7 @@
                             <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                                 href="{{ route('logout') }}">
                                 <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                                    stroke="currentColor">
+                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                     <path
                                         d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
                                     </path>

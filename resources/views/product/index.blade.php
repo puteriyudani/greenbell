@@ -144,6 +144,10 @@
                 </div>
             </div>
 
+            @if (isset($search))
+                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200">Results for "{{ $search }}":</h3>
+            @endif
+
             <!-- Be Leaf -->
             <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
                 Be Leaf

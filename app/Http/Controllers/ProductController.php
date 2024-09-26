@@ -8,31 +8,41 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    public function search(Request $request)
+    {
+        // Ambil input dari pengguna
+        $search = $request->input('search');
+
+        // Query produk berdasarkan nama atau kategori yang cocok dengan pencarian
+        $products = Product::join('kategoris', 'kategoris.nama', '=', 'products.kategori')
+            ->where('products.nama', 'like', '%' . $search . '%')
+            ->orWhere('kategoris.nama', 'like', '%' . $search . '%')
+            ->select('products.*', 'kategoris.menu')
+            ->get();
+
+        // Kirim hasil pencarian ke view yang sama atau khusus untuk hasil pencarian
+        return view('product.index', [
+            'beleafs' => $products->where('menu', 'Be Leaf'),
+            'preloveds' => $products->where('menu', 'Pre Loved'),
+            'generals' => $products->where('menu', 'General'),
+            'search' => $search, // Menyimpan kata kunci pencarian agar bisa ditampilkan di view
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $beleaf = Product::join('kategoris', 'kategoris.nama', '=', 'products.kategori')
-            ->where('kategoris.menu', 'Be Leaf')
+        $products = Product::join('kategoris', 'kategoris.nama', '=', 'products.kategori')
             ->select('products.*', 'kategoris.menu')
             ->get();
 
-        $preloved = Product::join('kategoris', 'kategoris.nama', '=', 'products.kategori')
-            ->where('kategoris.menu', 'Pre Loved')
-            ->select('products.*', 'kategoris.menu')
-            ->get();
-
-        $general = Product::join('kategoris', 'kategoris.nama', '=', 'products.kategori')
-            ->where('kategoris.menu', 'General')
-            ->select('products.*', 'kategoris.menu')
-            ->get();
-
-        // Menggabungkan semua data dalam satu array asosiatif
         $data = [
-            'beleafs' => $beleaf,
-            'preloveds' => $preloved,
-            'generals' => $general,
+            'beleafs' => $products->where('menu', 'Be Leaf'),
+            'preloveds' => $products->where('menu', 'Pre Loved'),
+            'generals' => $products->where('menu', 'General'),
         ];
 
         return view('product.index', $data);
@@ -117,7 +127,7 @@ class ProductController extends Controller
 
         $product->update($request->all());
 
-        return redirect()->route('product.index')->with('success','Product updated successfully');
+        return redirect()->route('product.index')->with('success', 'Product updated successfully');
     }
 
     /**
@@ -127,6 +137,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('product.index')->with('success','Product deleted successfully');
+        return redirect()->route('product.index')->with('success', 'Product deleted successfully');
     }
 }

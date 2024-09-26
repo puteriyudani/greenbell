@@ -76,4 +76,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('product/{product}/image/create', [ProductImageController::class, 'create'])->name('product-image.create');
     Route::post('product/{product}/image', [ProductImageController::class, 'store'])->name('product-image.store');
     Route::delete('product/image/{image}/delete', [ProductImageController::class, 'destroy'])->name('product-image.destroy');
+    Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+
 });
