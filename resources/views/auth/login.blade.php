@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Login - Green Bell</title>
+    <title>Login - Bie Leaf</title>
 
     <!-- Favicons -->
     <link href="{{ asset('assets') }}/img/icon.png" rel="icon">

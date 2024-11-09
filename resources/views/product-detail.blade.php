@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('title')
-    <title>Green Bell</title>
+    <title>Bie Leaf</title>
 
     <style>
         .product__details__button a {
@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/img/logo.png" alt=""></a>
+                        <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/img/logo.png" height="50px" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">
