@@ -6,7 +6,7 @@
         <li><span class="icon_search search-switch"></span></li>
     </ul>
     <div class="offcanvas__logo">
-        <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/img/logo.png" alt=""></a>
+        <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/img/logo.png" height="50px" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__auth">

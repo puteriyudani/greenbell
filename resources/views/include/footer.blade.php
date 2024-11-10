@@ -5,7 +5,7 @@
             <div class="col-lg-7 col-md-12 col-sm-12">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/img/logo.png" alt=""></a>
+                        <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/img/logo.png" height="50px" alt=""></a>
                     </div>
                     <div class="map-container">
                         <iframe
