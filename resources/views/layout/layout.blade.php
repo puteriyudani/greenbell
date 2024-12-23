@@ -42,7 +42,8 @@
         .map-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
         }
@@ -54,6 +55,21 @@
             width: 100%;
             height: 100%;
             border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .categories__accordion .accordion {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .categories__accordion .accordion .card {
+                flex: 1 1 calc(33.33% - 16px);
+                /* Tiga kolom */
+                margin: 8px;
+                text-align: center;
+            }
         }
     </style>
 </head>
