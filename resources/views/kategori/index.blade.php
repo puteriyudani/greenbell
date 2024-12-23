@@ -156,6 +156,7 @@
                                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                 <th class="px-4 py-3">Menu</th>
                                 <th class="px-4 py-3">Kategori</th>
+                                <th class="px-4 py-3">Kode Awal</th>
                                 <th class="px-4 py-3">Actions</th>
                             </tr>
                         </thead>
@@ -164,6 +165,7 @@
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3 text-sm">{{ $beleaf->menu }}</td>
                                     <td class="px-4 py-3 text-sm">{{ $beleaf->nama }}</td>
+                                    <td class="px-4 py-3 text-sm">{{ $beleaf->kode_awal }}</td>
                                     <td class="px-4 py-3">
                                         <div class="flex items-center space-x-4 text-sm">
                                             <a href="{{ route('kategori.edit', $beleaf->id) }}">
@@ -214,6 +216,7 @@
                                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                 <th class="px-4 py-3">Menu</th>
                                 <th class="px-4 py-3">Kategori</th>
+                                <th class="px-4 py-3">Kode Awal</th>
                                 <th class="px-4 py-3">Actions</th>
                             </tr>
                         </thead>
@@ -222,6 +225,7 @@
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3 text-sm">{{ $preloved->menu }}</td>
                                     <td class="px-4 py-3 text-sm">{{ $preloved->nama }}</td>
+                                    <td class="px-4 py-3 text-sm">{{ $preloved->kode_awal }}</td>
                                     <td class="px-4 py-3">
                                         <div class="flex items-center space-x-4 text-sm">
                                             <a href="{{ route('kategori.edit', $preloved->id) }}">
@@ -272,6 +276,7 @@
                                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                 <th class="px-4 py-3">Menu</th>
                                 <th class="px-4 py-3">Kategori</th>
+                                <th class="px-4 py-3">Kode Awal</th>
                                 <th class="px-4 py-3">Actions</th>
                             </tr>
                         </thead>
@@ -280,6 +285,7 @@
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3 text-sm">{{ $general->menu }}</td>
                                     <td class="px-4 py-3 text-sm">{{ $general->nama }}</td>
+                                    <td class="px-4 py-3 text-sm">{{ $general->kode_awal }}</td>
                                     <td class="px-4 py-3">
                                         <div class="flex items-center space-x-4 text-sm">
                                             <a href="{{ route('kategori.edit', $general->id) }}">

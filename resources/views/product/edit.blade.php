@@ -134,6 +134,16 @@
                 </div>
             @endif
 
+            @if ($errors->any())
+                <div class="p-4 mb-4 text-sm text-red-600 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-400">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <!-- General elements -->
             <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
                 <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">

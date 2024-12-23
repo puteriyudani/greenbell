@@ -134,6 +134,16 @@
                 </div>
             @endif
 
+            @if ($errors->any())
+                <div class="p-4 mb-4 text-sm text-red-600 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-400">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <!-- General elements -->
             <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
                 <form action="{{ route('kategori.update', $kategori->id) }}" method="POST" enctype="multipart/form-data">
@@ -145,6 +155,13 @@
                         <input type="text" name="nama" id="nama" value="{{ $kategori->nama }}"
                             class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             placeholder="Nama Kategori" />
+                    </label>
+
+                    <label class="block mt-4 text-sm">
+                        <span class="text-gray-700 dark:text-gray-400">Kode Kategori</span>
+                        <input type="text" name="kode_awal" id="kode_awal" value="{{ $kategori->kode_awal }}"
+                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            placeholder="Kode Kategori" />
                     </label>
 
                     <label class="block mt-4 text-sm">

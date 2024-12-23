@@ -151,16 +151,16 @@
                                 <li>
                                 <li>
                                     <span>Kategori:</span>
-                                    <p style="color: red">{{ $productDetail->kategori }}</p>
+                                    <p style="color: blue">{{ $productDetail->kategori }}</p>
                                 </li>
                                 </li>
                                 <li>
                                     <span>Stock:</span>
-                                    <p style="color: green">{{ $productDetail->stok }}</p>
+                                    <p style="color: rgb(0, 0, 0)">{{ $productDetail->stok }}</p>
                                 </li>
                                 <li>
                                     <span>Kondisi:</span>
-                                    <p style="color: red">{{ $productDetail->kondisi }}</p>
+                                    <p style="color: green">{{ $productDetail->kondisi }}</p>
                                 </li>
                             </ul>
                         </div>

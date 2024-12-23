@@ -33,7 +33,11 @@ class ProductImageController extends Controller
     {
         // Validasi gambar
         $request->validate([
-            'images.*' => 'required|image|mimes:png,jpg,jpeg,webp|max:2048'
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Max 2048 KB (2 MB)
+        ], [
+            'images.*.max' => 'Setiap gambar harus kurang dari 2MB.',
+            'images.*.image' => 'File harus berupa gambar.',
+            'images.*.mimes' => 'Format gambar harus: jpeg, png, jpg, gif, svg.',
         ]);
 
         $imageData = [];
@@ -89,7 +93,7 @@ class ProductImageController extends Controller
     public function destroy(int $productImageId)
     {
         $productImage = ProductImage::findOrFail($productImageId);
-        if(File::exists($productImage->image)){
+        if (File::exists($productImage->image)) {
             File::delete($productImage->image);
         }
         $productImage->delete();

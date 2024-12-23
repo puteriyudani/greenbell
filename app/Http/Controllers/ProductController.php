@@ -53,7 +53,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $kategoris = Kategori::get();
+        $kategoris = Kategori::orderBy('nama', 'asc')->get();
         return view('product.create', compact('kategoris'));
     }
 
@@ -62,34 +62,49 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::latest()->first();
-        $kodeAwal = "GB";
+        // Ambil input kategori dari request
+        $kategoriInput = $request->input('kategori'); // Misal: 'Permainan'
+
+        // Cari data kategori berdasarkan input
+        $kategori = Kategori::where('nama', $kategoriInput)->first();
+
+        if ($kategori) {
+            $kodeAwal = $kategori->kode_awal; // Ambil kolom 'kode_awal' dari tabel kategori
+        } else {
+            $kodeAwal = 'XX-XX'; // Default jika kategori tidak ditemukan
+        }
+
+        // Cari produk terakhir berdasarkan kodeAwal
+        $product = Product::where('kode', 'LIKE', $kodeAwal . '%')->latest()->first();
 
         if ($product == null) {
-            // kode pertama
+            // Kode pertama
             $nomorUrut = "0001";
         } else {
-            // kode berikutnya
-            $nomorUrut = substr($product->kode, 2); // Ambil bagian nomor dari kode produk terakhir
+            // Kode berikutnya
+            $nomorUrut = substr($product->kode, strlen($kodeAwal)); // Ambil bagian nomor dari kode produk terakhir
             $nomorUrut = (int)$nomorUrut + 1; // Tambahkan 1
             $nomorUrut = str_pad($nomorUrut, 4, "0", STR_PAD_LEFT); // Pad dengan nol di depan hingga 4 digit
         }
 
         $kodeProduct = $kodeAwal . $nomorUrut;
 
+        // Validasi input
         $request->validate([
-            'kategori' => 'required',
+            'kategori' => 'required', // Nama kategori
             'nama' => 'required',
             'detail' => 'required',
-            'harga' => 'required',
+            'harga' => 'required|numeric',
             'kondisi' => 'required',
-            'stok' => 'required',
+            'stok' => 'required|integer|min:0',
         ]);
 
+        // Simpan data
         $requestData = $request->all();
         $requestData['kode'] = $kodeProduct;
 
         Product::create($requestData);
+
 
         return redirect()->route('product.index')->with('success', 'Product created successfully.');
     }
@@ -107,7 +122,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $kategoris = Kategori::get();
+        $kategoris = Kategori::orderBy('nama', 'asc')->get();
         return view('product.edit', compact('product', 'kategoris'));
     }
 
@@ -116,19 +131,61 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        // Validasi input
         $request->validate([
             'kategori' => 'required',
             'nama' => 'required',
             'detail' => 'required',
-            'harga' => 'required',
+            'harga' => 'required|numeric',
             'kondisi' => 'required',
-            'stok' => 'required',
+            'stok' => 'required|integer|min:0',
         ]);
 
-        $product->update($request->all());
+        // Cek apakah kategori berubah
+        if ($request->input('kategori') !== $product->kategori) {
+            // Ambil input kategori dari request
+            $kategoriInput = $request->input('kategori'); // Nama kategori
 
+            // Cari data kategori berdasarkan input
+            $kategori = Kategori::where('nama', $kategoriInput)->first();
+
+            if ($kategori) {
+                $kodeAwal = $kategori->kode_awal; // Ambil kolom 'kode_awal' dari tabel kategori
+            } else {
+                $kodeAwal = 'XX-XX'; // Default jika kategori tidak ditemukan
+            }
+
+            // Cari produk terakhir berdasarkan kodeAwal
+            $latestProduct = Product::where('kode', 'LIKE', $kodeAwal . '%')->latest()->first();
+
+            if ($latestProduct == null) {
+                // Kode pertama
+                $nomorUrut = "0001";
+            } else {
+                // Kode berikutnya
+                $nomorUrut = substr($latestProduct->kode, strlen($kodeAwal)); // Ambil bagian nomor dari kode produk terakhir
+                $nomorUrut = (int)$nomorUrut + 1; // Tambahkan 1
+                $nomorUrut = str_pad($nomorUrut, 4, "0", STR_PAD_LEFT); // Pad dengan nol di depan hingga 4 digit
+            }
+
+            // Regenerasi kode produk
+            $kodeProduct = $kodeAwal . $nomorUrut;
+        } else {
+            // Jika kategori tidak berubah, gunakan kode produk lama
+            $kodeProduct = $product->kode;
+        }
+
+        // Ambil semua data request dan tambahkan kode produk
+        $requestData = $request->except(['_token', '_method']);
+        $requestData['kode'] = $kodeProduct;
+
+        // Update data produk
+        $product->update($requestData);
+
+        // Redirect dengan pesan sukses
         return redirect()->route('product.index')->with('success', 'Product updated successfully');
     }
+
 
     /**
      * Remove the specified resource from storage.

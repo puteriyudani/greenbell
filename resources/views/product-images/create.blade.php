@@ -134,9 +134,20 @@
                 </div>
             @endif
 
+            @if ($errors->any())
+                <div class="p-4 mb-4 text-sm text-red-600 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-400">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <!-- General elements -->
             <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-                <form action="{{ route('product-image.store', $product->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('product-image.store', $product->id) }}" method="POST"
+                    enctype="multipart/form-data" onsubmit="return validateImages()">
                     @csrf
 
                     <label class="block mt-4 text-sm">
@@ -144,6 +155,7 @@
                         <input name="images[]" id="image" type="file"
                             class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             placeholder="Gambar Produk" multiple />
+                        <small style="color: red;" id="error-message"></small>
                     </label>
 
                     <div class="mt-4">
@@ -154,6 +166,25 @@
                     </div>
                 </form>
             </div>
+
+            <script>
+                function validateImages() {
+                    const images = document.getElementById('image').files;
+                    const errorMessage = document.getElementById('error-message');
+                    const maxFileSize = 2 * 1024 * 1024; // 2 MB in bytes
+
+                    for (let i = 0; i < images.length; i++) {
+                        if (images[i].size > maxFileSize) {
+                            errorMessage.textContent = "Setiap gambar harus kurang dari 2MB.";
+                            return false;
+                        }
+                    }
+
+                    errorMessage.textContent = ""; // Clear error message
+                    return true;
+                }
+            </script>
+
         </div>
     </main>
 @endsection

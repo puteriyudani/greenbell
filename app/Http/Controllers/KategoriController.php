@@ -34,6 +34,7 @@ class KategoriController extends Controller
         $request->validate([
             'nama' => 'required',
             'menu' => 'required',
+            'kode_awal' => 'required',
         ]);
 
         Kategori::create($request->all());
@@ -65,6 +66,7 @@ class KategoriController extends Controller
         $request->validate([
             'nama' => 'required',
             'menu' => 'required',
+            'kode_awal' => 'required',
         ]);
 
         $kategori->update($request->all());
